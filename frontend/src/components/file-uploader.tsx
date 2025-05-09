@@ -57,19 +57,19 @@ export function FileUploader({ file, onFileChange }: FileUploaderProps) {
       {!file ? (
         <div
           className={`border-2 border-dashed rounded-lg p-10 text-center ${
-            isDragging ? "border-primary bg-primary/5" : "border-gray-300"
+            isDragging ? "border-primary bg-primary/10" : "border-border"
           }`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
         >
           <div className="flex flex-col items-center justify-center space-y-4">
-            <div className="p-3 bg-primary/10 rounded-full">
+            <div className="p-3 bg-primary/20 rounded-full">
               <Upload className="h-10 w-10 text-primary" />
             </div>
             <div>
               <p className="text-lg font-medium">Drag and drop your PDF here</p>
-              <p className="text-sm text-gray-500 mt-1">or click to browse files</p>
+              <p className="text-sm text-muted-foreground mt-1">or click to browse files</p>
             </div>
             <Button variant="outline" onClick={() => fileInputRef.current?.click()}>
               Select PDF
@@ -84,15 +84,15 @@ export function FileUploader({ file, onFileChange }: FileUploaderProps) {
           </div>
         </div>
       ) : (
-        <div className="border rounded-lg p-6">
+        <div className="border rounded-lg p-6 bg-accent/50">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-primary/10 rounded">
+              <div className="p-2 bg-primary/20 rounded">
                 <FileText className="h-6 w-6 text-primary" />
               </div>
               <div>
                 <p className="font-medium">{file.name}</p>
-                <p className="text-sm text-gray-500">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                <p className="text-sm text-muted-foreground">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
               </div>
             </div>
             <Button variant="ghost" size="icon" onClick={handleRemoveFile} aria-label="Remove file">

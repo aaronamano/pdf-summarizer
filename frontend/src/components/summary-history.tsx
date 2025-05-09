@@ -47,7 +47,7 @@ export function SummaryHistory({ items, onRemove, onClearAll, onViewDetails }: S
 
   if (items.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-500">
+      <div className="text-center py-8 text-muted-foreground">
         <p>No summary history yet</p>
       </div>
     )
@@ -75,7 +75,7 @@ export function SummaryHistory({ items, onRemove, onClearAll, onViewDetails }: S
             variant="outline"
             size="sm"
             onClick={() => setShowDeleteDialog(true)}
-            className="text-red-500 hover:text-red-700 hover:bg-red-50"
+            className="text-red-400 hover:text-red-300 hover:bg-red-950/30"
           >
             Clear All
           </Button>
@@ -84,15 +84,15 @@ export function SummaryHistory({ items, onRemove, onClearAll, onViewDetails }: S
 
       <div className="space-y-6">
         {items.map((item) => (
-          <Card key={item.id} className="overflow-hidden">
-            <div className="p-4 bg-gray-50 flex justify-between items-start border-b">
+          <Card key={item.id} className="overflow-hidden border-accent">
+            <div className="p-4 bg-accent/50 flex justify-between items-start border-b border-accent">
               <div className="flex items-start space-x-3">
-                <div className="p-2 bg-primary/10 rounded mt-1">
+                <div className="p-2 bg-primary/20 rounded mt-1">
                   <FileText className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900">{item.pdfName}</h4>
-                  <div className="flex items-center text-sm text-gray-500 mt-1">
+                  <h4 className="font-medium text-foreground">{item.pdfName}</h4>
+                  <div className="flex items-center text-sm text-muted-foreground mt-1">
                     <Clock className="h-3.5 w-3.5 mr-1" />
                     <span>{formatDistanceToNow(item.timestamp, { addSuffix: true })}</span>
                     <span className="mx-2">•</span>
@@ -120,7 +120,7 @@ export function SummaryHistory({ items, onRemove, onClearAll, onViewDetails }: S
                   )}
                 </Button>
                 <Button variant="ghost" size="icon" onClick={() => onRemove(item.id)} aria-label="Remove summary">
-                  <Trash2 className="h-4 w-4 text-gray-500" />
+                  <Trash2 className="h-4 w-4 text-muted-foreground hover:text-red-400" />
                 </Button>
               </div>
             </div>
@@ -135,8 +135,8 @@ export function SummaryHistory({ items, onRemove, onClearAll, onViewDetails }: S
                 >
                   <CardContent className="p-5">
                     <div className="mb-4">
-                      <h5 className="font-semibold text-gray-900 mb-2">Summary:</h5>
-                      <div className="bg-gray-50 p-4 rounded-md border border-gray-200 whitespace-pre-wrap text-gray-700 leading-relaxed max-h-[400px] overflow-y-auto">
+                      <h5 className="font-semibold text-foreground mb-2">Summary:</h5>
+                      <div className="bg-muted p-4 rounded-md border border-accentwhitespace-pre-wrap text-foreground leading-relaxed max-h-[400px] overflow-y-auto">
                         {item.summary}
                       </div>
                     </div>
@@ -194,7 +194,7 @@ export function SummaryHistory({ items, onRemove, onClearAll, onViewDetails }: S
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={onClearAll} className="bg-red-500 hover:bg-red-600">
+            <AlertDialogAction onClick={onClearAll} className="bg-red-900 hover:bg-red-800">
               Delete All
             </AlertDialogAction>
           </AlertDialogFooter>

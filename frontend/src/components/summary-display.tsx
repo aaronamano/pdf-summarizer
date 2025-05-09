@@ -23,7 +23,7 @@ export function SummaryDisplay({ summary }: SummaryDisplayProps) {
   }
 
   return (
-    <Card className="mt-6">
+    <Card className="mt-6 border-accent bg-accent/30">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
         <CardTitle>Summary</CardTitle>
         <Button variant="ghost" size="sm" className="h-8 gap-1" onClick={copyToClipboard}>
@@ -41,7 +41,7 @@ export function SummaryDisplay({ summary }: SummaryDisplayProps) {
         </Button>
       </CardHeader>
       <CardContent>
-        <div className="whitespace-pre-wrap text-gray-700 leading-relaxed">{summary}</div>
+        <div className="whitespace-pre-wrap text-foreground leading-relaxed">{summary}</div>
       </CardContent>
     </Card>
   )
